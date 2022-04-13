@@ -1,0 +1,288 @@
+@import "var";
+@import "global";
+@import "mixins";
+
+$primaryViolet: #5e42a6;
+$navColor: #312450;
+$firstBg: #5052b5;
+$secondBg: #4c4eac;
+$thirdBg: #484aa3;
+$fourthBg: #b74e91;
+$fifthBg: #382173;
+$footerBg: #493382;
+$white: #fff;
+$border: #765eb3;
+$lightGray: rgba(211, 211, 211, 0.7);
+$borderLightGray: rgba(211, 211, 211, 0.3);
+$transition: 0.4s ease;
+$fontFamily: "Lato", sans-serif;
+$transition: easy 0.3;
+$fontSize: 16px;
+
+/************************************************
+aside
+*************************************************/
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+aside {
+  background-color: $navColor;
+  height: 100vh;
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include breakpoint(phone) {
+    flex: 0 0 100%;
+    height: auto;
+  }
+  color: $white;
+  // align-items: center;
+  .logo {
+    padding: 50px;
+  }
+
+  ul {
+    text-align: right;
+    @include breakpoint(phone) {
+      text-align: center;
+    }
+    li {
+      text-transform: uppercase;
+      line-height: 3;
+      border-bottom: 2px solid $border;
+      margin: 0 40px 0 10px;
+      @include breakpoint(phone) {
+        margin: 0 10px;
+      }
+      &:hover {
+        color: $fourthBg;
+        border-bottom: 2px solid $fourthBg;
+        transition: $transition;
+      }
+    }
+  }
+  .icon {
+    text-align: right;
+    margin: 30px 40px 0 10px;
+    @include breakpoint(phone) {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    i {
+      font-size: 2rem;
+      margin-left: 20px;
+      &:hover {
+        color: $fourthBg;
+        transition: $transition;
+      }
+    }
+  }
+}
+
+/************************************************
+main 
+*************************************************/
+
+.main {
+  //   background-color: $firstBg;
+  height: 100vh;
+  overflow: scroll;
+  flex: 0 0 75%;
+  /***header ***/
+  @include breakpoint(phone) {
+    flex: 0 0 100%;
+//     height: auto;
+    overflow: auto;
+  }
+  header {
+    height: 100vh;
+    background-image: linear-gradient(rgba($fifthBg, 0.9), rgba($fifthBg, 0.9)),
+      url(../img/circle.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+    @include breakpoint(phone) {
+      height: auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 4rem;
+      color: $white;
+      @include breakpoint(phone) {
+        font-size: 2.5rem;
+      }
+    }
+    p {
+      color: $lightGray;
+      font-size: 1.3rem;
+      line-height: 2;
+      margin: 50px 0 40px 0;
+    }
+  }
+  /***services***/
+  .services {
+    article {
+      display: flex;
+      flex-wrap: wrap;
+
+      .services_img {
+        flex: 1;
+        @include breakpoint(phone) {
+          flex: 0 0 100%;
+        }
+      }
+      .services_text {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 50px;
+        color: $white;
+        @include breakpoint(phone) {
+          padding: 20px;
+        }
+        @include breakpoint(phone) {
+          flex: 0 0 100%;
+        }
+        P {
+          margin: 20px 0;
+        }
+      }
+      &:nth-child(1) {
+        background-color: $firstBg;
+      }
+
+      &:nth-child(2) {
+        background-color: $secondBg;
+      }
+
+      &:nth-child(3) {
+        background-color: $thirdBg;
+      }
+    }
+  }
+
+  /***work***/
+
+  .work {
+    background-color: $fourthBg;
+    .cards_holder {
+      p {
+        color: $lightGray;
+        padding: 30px 0;
+      }
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+          flex: 0 0 50%;
+          border: 1px solid $borderLightGray;
+          padding: 80px 30px;
+          display: flex;
+          @include breakpoint(phone) {
+            flex: 0 0 100%;
+          }
+
+          i {
+            font-size: 2rem;
+            width: 3rem;
+            height: 3rem;
+            line-height: 3rem;
+            background: $white;
+            border-radius: 50%;
+            text-align: center;
+            color: $fourthBg;
+          }
+
+          .text {
+            padding-left: 20px;
+            color: $white;
+
+            p {
+              color: $lightGray;
+            }
+          }
+        }
+
+        button {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
+  /***cta***/
+  .cta {
+    background-color: $fifthBg;
+    color: $lightGray;
+    p {
+      margin: 20px 0;
+    }
+    .cta_content {
+      display: flex;
+      align-items: center;
+      form {
+        flex: 2;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-right: 20px;
+        border-right: 1px solid $borderLightGray;
+        @include breakpoint(phone) {
+          flex: 0 0 100%;
+        }
+        input {
+          flex: 0 0 49%;
+          background-color: $primaryViolet;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          margin-bottom: 30px;
+          @include breakpoint(phone) {
+            flex: 0 0 100%;
+          }
+        }
+
+        textarea {
+          flex: 0 0 100%;
+          background-color: $primaryViolet;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+        }
+        button {
+          margin-top: 20px;
+        }
+      }
+    }
+    &_info {
+      flex: 1;
+      padding-left: 30px;
+      line-height: 2.2;
+      @include breakpoint(phone) {
+        flex: 0 0 100%;
+      }
+      h4 {
+        color: $white;
+      }
+    }
+  }
+
+  /***footer***/
+  footer {
+    background-color: $footerBg;
+    padding: 50px 0;
+    text-align: center;
+    color: $lightGray;
+  }
+}
